@@ -9,4 +9,4 @@ echo "Sum is : $SUM"
 
 FRUITS=("Apple" "Banana" "Orange")
 
-echo " Fruits are: ${(Fruits[@]}
+echo " Fruits are: ${(Fruits[@]}"

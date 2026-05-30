@@ -7,31 +7,25 @@ if [ $USERID -ne 0 ]; then
     exit 1
 fi
 
+VALIDATE(){
+    if [ $1 -ne 0 ]; then
+      echo "$2.....FAILURE"
+      exit 1
+    else
+      echo " $2....SUCCESS"
+    fi
+}
+
 echo "Installing nginx........"
 dnf install nginx -y
 
-if [ s? -ne 0 ]; then
-   echo "Installing nginx.....FAILURE"
-   exit 1
-else
-   echo " Installing nginx....SUCCESS"
-fi
+VALIDATE $? "Nginx Installation"
 
 dnf install mysql -y
 
-if [ s? -ne 0 ]; then
-   echo "Installing mysql.....FAILURE"
-   exit 1
-else
-   echo " Installing mysql....SUCCESS"
-fi
+VALIDATE $? "Mysql Installation"
 
 dnf install nodejs -y
+VALIDATE $? "nodejs Installation"
 
-if [ s? -ne 0 ]; then
-   echo "Installing nodejs.....FAILURE"
-   exit 1
-else
-   echo " Installing nodejs....SUCCESS"
-fi
 
